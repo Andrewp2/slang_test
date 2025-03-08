@@ -4,9 +4,10 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/home/andrew-peterson/Downloads/slang-2024.9.1-linux-x86_64/include",
+                "/home/andrew-peterson/Downloads/slang-2025.6.1-linux-x86_64/include",
                 "/usr/include",
-                "/usr/local/include"
+                "/usr/local/include",
+                "/usr/include/nlohmann"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",

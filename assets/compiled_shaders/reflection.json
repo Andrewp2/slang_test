@@ -1,0 +1,24 @@
+[
+    {
+        "entry_points": [
+            {
+                "name": "computeMain",
+                "stage": 6
+            }
+        ],
+        "parameters": [
+            {
+                "name": "outputBuffer",
+                "resource": {
+                    "access": "2",
+                    "binding": 0,
+                    "result_type": "float",
+                    "shape": "6",
+                    "space": 0
+                },
+                "type": "RWStructuredBuffer"
+            }
+        ],
+        "shader_name": "simple_compute"
+    }
+]
