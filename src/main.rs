@@ -7,7 +7,6 @@ use bevy::render::render_graph::{
 use bevy::render::render_resource::*;
 use bevy::render::renderer::{RenderContext, RenderDevice};
 use bevy::render::{Render, RenderApp};
-use bytemuck;
 use crossbeam_channel::{Receiver, Sender};
 use std::convert::TryInto;
 
@@ -74,7 +73,7 @@ impl Plugin for ComputeShaderPlugin {
 
         // Add the compute node to the render graph as before…
         let mut render_graph = render_app.world_mut().resource_mut::<RenderGraph>();
-        render_graph.add_node(ComputeNodeLabel, ComputeNode::default());
+        render_graph.add_node(ComputeNodeLabel, ComputeNode);
         render_graph.add_node_edge(ComputeNodeLabel, bevy::render::graph::CameraDriverLabel);
 
         // Add a render system to do the GPU readback after the compute node has run.
@@ -139,7 +138,7 @@ fn setup_compute_pipeline(
     render_device: Res<RenderDevice>,
     mut commands: Commands,
     asset_server: Res<AssetServer>,
-    mut pipeline_cache: ResMut<PipelineCache>,
+    pipeline_cache: ResMut<PipelineCache>,
 ) {
     // Read all bindings for the shader "simple_compute"
     let bindings = get_buffer_bindings_for_shader("simple_compute");
